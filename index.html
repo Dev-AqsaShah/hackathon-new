@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathon | Resume Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Logo at the top left -->
+  <header>
+    <div class="logo">
+      <h2>Aqsa</h2>
+    </div>
+  </header>
+
+  <!-- Hero Section with Animated Text -->
+  <div class="container">
+    <div class="intro-text">
+      <h1 id="animated-text"></h1>
+    </div>
+
+    <!-- Buttons for My Resume and Create Resume -->
+    <div class="buttons">
+      <button onclick="openResume()">My Resume</button>
+      <button onclick="openBuilder()">Create Resume</button>
+    </div>
+  </div>
+
+  <!-- Footer with Links and Icons -->
+  <footer>
+    <div class="footer-left">
+      <p>Created by Aqsa Shah | aqsashah000000@gmail.com</p>
+    </div>
+    <div class="footer-right">
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="https://github.com" target="_blank">GitHub</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="new.js"></script>
+
+  <script>
+    // Animate the hero text
+    const text = "Build your professional resume in just few seconds";
+    let i = 0;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("animated-text").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50);
+      }
+    }
+    window.onload = typeWriter;
+
+    // JavaScript function to open 'My Resume' page
+    function openResume() {
+      window.location.href = "resume.html"; // Update with the correct file path if needed
+    }
+
+    // JavaScript function to open the 'Create Resume' page
+    function openBuilder() {
+      window.location.href = "new.html"; // Update with the correct file path if needed
+    }
+  </script>
+</body>
+</html>

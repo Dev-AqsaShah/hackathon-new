@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder</title>
+  <link rel="stylesheet" href="new.css">
+</head>
+<body>
+  <div id="builder" class="resume-builder">
+    <h1>Resume Builder</h1>
+    <label for="imageUpload">Upload Profile Image</label>
+    <input type="file" id="imageUpload" accept="image/*">
+
+    <label for="name">Name</label>
+    <input type="text" id="name">
+
+    <label for="email">Email</label>
+    <input type="text" id="email">
+
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone">
+
+    <label for="country">Country</label>
+    <input type="text" id="country">
+
+    <label for="city">City</label>
+    <input type="text" id="city">
+
+    <label for="about">Tell More About You</label>
+    <textarea id="about"></textarea>
+
+    <label for="education">Education</label>
+    <input type="text" id="education">
+
+    <label for="experience">Experience</label>
+    <input type="text" id="experience">
+
+    <label for="skills">Skills</label>
+    <input type="text" id="skills">
+
+    <label for="certifications">Certifications</label>
+    <input type="text" id="certifications">
+
+    <button id="generateBtn">Generate Resume</button>
+  </div>
+
+  <div id="resume" class="resume-display" style="display: none;">
+    <h1>Your Resume</h1>
+    <div id="resumeImage"></div>
+    <div class="resume-content">
+      <h3 id="displayName"></h3>
+      <p id="displayEmail"></p>
+      <p id="displayPhone"></p>
+      <p id="displayCountryCity"></p>
+      <p id="displayAbout"></p>
+      <h3>Education</h3>
+      <p id="displayEducation"></p>
+      <h3>Experience</h3>
+      <p id="displayExperience"></p>
+      <h3>Skills</h3>
+      <p id="displaySkills"></p>
+      <h3>Certifications</h3>
+      <p id="displayCertifications"></p>
+    </div>
+    <button id="downloadBtn">Download Your Resume</button>
+    <button id="shareLinkBtn">Generate Shareable Link</button>
+  </div>
+
+  <script src="new.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</body>
+</html>

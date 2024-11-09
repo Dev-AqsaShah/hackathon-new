@@ -1,0 +1,98 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+  background-color: #696fc6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header with Logo */
+header {
+  padding: 15px;
+  background-color: #2b1d7a;
+  display: flex;
+  align-items: center;
+}
+
+.logo h2 {
+  color: #a9a3e4;
+  font-weight: bold;
+  margin-left: 15px;
+}
+
+/* Main Container */
+.container {
+  text-align: center;
+  margin-top: 50px;
+  flex: 1;
+}
+
+/* Animated Hero Text */
+.intro-text h1 {
+  color: #2b1d7a;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Button Styling */
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons button {
+  background-color: #2b1d7a;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #342271;
+}
+
+/* Footer Styling */
+footer {
+  background-color: #2b1d7a;
+  padding: 10px 20px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left p {
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+
+.footer-right a {
+  color: #ffffff;
+  margin-left: 15px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.footer-right a:hover {
+  color: #fff;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

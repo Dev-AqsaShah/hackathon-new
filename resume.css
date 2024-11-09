@@ -1,0 +1,746 @@
+/* Global Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+} */
+body {
+  width: 100%;
+  min-height: 100vh; /* Changed from height to min-height */
+  background-color: #696fc6;
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b1d7a;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+/* Navigation Styles */
+/* nav {
+  width: 100%;
+  height: 10vh;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+} */
+
+nav {
+  width: 100%;
+  height: 10vh;
+  position: sticky; /* Make the nav sticky */
+  top: 0; /* Stick to the top */
+  z-index: 100; /* Ensure it stays above other content */
+  background-color: #2b1d7a; /* Semi-transparent background */
+  transition: background-color 0.3s; /* Smooth transition for background */
+}
+
+nav.scrolled {
+  background-color: #2b1d7a /* Solid background when scrolled */
+}
+
+
+nav {
+  width: 100%;
+  height: 10vh;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #2b1d7a; /* Add a background color */
+  transition: background-color 0.3s; /* Smooth transition for background */
+}
+
+nav.scrolled {
+  background-color: #2b1d7a; /* Darker when scrolled */
+}
+
+
+.nav-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-container .logo span {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4e63cf;
+}
+
+.hamburg,
+.cancel {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: white;
+  font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+  display: none;
+}
+
+.nav-container .links {
+  display: flex;
+}
+
+.nav-container .links a {
+  position: relative;
+  font-size: 1.2rem;
+  color: white;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: 550;
+  transition: 0.3s linear;
+}
+
+
+nav.scrolled .nav-container .links a {
+  color: lightgray; /* Change link color when scrolled */
+}
+.nav-container .links a::before {
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  background-color: #2b1d7a;
+  transition: 0.2s linear;
+}
+
+.nav-container .links a:hover {
+  color: #2b1d7a;
+  border-bottom: 2px solid #2b1d7a;
+}
+
+.hidden {
+  display: none;
+}
+
+.dropdown {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  transform: translateY(-500px);
+  width: 100%;
+  height: auto;
+  backdrop-filter: blur(5px) brightness(40%);
+  box-shadow: 0 0 20px #3f269a;
+  transition: 0.2s linear;
+}
+
+.dropdown .links a {
+  display: flex;
+  color: #2b1d7a;
+  text-decoration: none;
+  padding: 15px 0;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s linear;
+}
+
+.dropdown .links a:hover {
+  background-color: #2b1d7a;
+}
+
+
+/* Section Styles */
+/* section {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+section {
+  width: 100%;
+  min-height: 90vh; /* Changed from height to min-height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Optional padding for better spacing */
+}
+
+section .main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 160px;
+}
+
+.main-container .image {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.main-container .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
+
+.main-container .image img:hover {
+  animation: animate 1.5s ease-in-out infinite;
+}
+
+@keyframes animate {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.05);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+.main-container .content {
+  color: #2b1d7a;
+  width: 40%;
+  min-height: 100px;
+}
+
+.content h1 {
+  font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
+}
+
+.content h1 span {
+  font-weight: 700;
+  text-shadow: 0 0 5px #2b1d7a;
+  color: #2b1d7a;
+}
+
+.typing-text {
+  font-size: clamp(1rem, 1rem + 5vw, 2.5vw);
+  font-weight: 700;
+  position: relative;
+}
+
+.typing-text span::before {
+  content: "";
+}
+
+.typing-text span::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid #2b1d7a;
+  right: -8px;
+  animation: cursor 0.5s infinite;
+}
+
+@keyframes cursor {
+  to {
+      border-left: 3px solid white;
+  }
+}
+
+.content p {
+  font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
+  margin: 10px 0;
+}
+
+.social-links i {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: transparent;
+  border: 0.2rem solid #2b1d7a;
+  border-radius: 50%;
+  color: #2b1d7a;
+  margin: 5px 15px 5px 0;
+  font-size: 2.5rem;
+  transition: 0.2s linear;
+}
+
+.social-links i:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 10px #2b1d7a);
+  background-color: #2b1d7a;
+  color: white;
+}
+
+.content .btn button {
+  width: 50%;
+  height: 6vh;
+  margin: 30px 0;
+  background-color: #2b1d7a;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 90%;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: 0.2s linear;
+}
+
+.content .btn button:hover {
+  transform: scale(1.1);
+  color: #2b1d7a;
+  border: 2px solid #2b1d7a;
+  background-color: transparent;
+  box-shadow: 0 0 40px 5px #2b1d7a;
+}
+
+
+header {
+  position: fixed; 
+  top: 0;
+  width: 100%;
+  z-index: 1000; 
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+header.scrolled {
+  background-color: #2b1d7a;
+  box-shadow: 0 2px 10px #2b1d7a;
+}
+
+body {
+  padding-top: 60px; /* Adjust this value based on the height of your header */
+}
+
+
+/* Navigation Styles */
+nav {
+  width: 100%;
+  height: 10vh; /* Adjust height as needed */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #2b1d7a; /* Initial background color */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+nav.scrolled {
+  background-color: #2b1d7a; /* Darker when scrolled */
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-container .links {
+  display: flex;
+}
+
+.nav-container .links a {
+  color: #E0E0E0; /* Link color */
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: 550;
+  transition: color 0.3s; /* Smooth transition for hover */
+}
+
+.nav-container .links a:hover {
+  color: #589ad7; /* Change color on hover */
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 500px) {
+  nav .logo {
+      position: absolute;
+      top: 16px;
+      left: 15px;
+      font-size: 1.5rem;
+  }
+
+  .main-container {
+      display: flex;
+      flex-direction: column;
+  }
+  }
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  nav .logo {
+    font-size: 1.5rem;
+  }
+
+  .nav-container .links {
+    flex-direction: row;      /* Keep links in a row on small screens */
+    gap: 2px;                  /* Reduce space between links */
+  }
+
+  /* Adjust the font size and padding for small screens */
+  .nav-container .links .link a {
+    font-size: 0.8rem; /* Adjust font size as needed */
+    gap: 2px;
+
+  }
+}
+
+
+
+  
+  .main-container .content {
+      width: 80%;
+      margin-top: -40px;
+      padding-left: 50px;
+  }
+
+  .social-links i {
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.5rem;
+  }
+
+  .typing-text {
+      font-size: 2rem;
+  }
+
+  .main-container .image {
+      z-index: -1;
+      width: 50%;
+      height: 60%;
+  }
+
+
+.education {
+  width: 80%;
+  margin: 0 auto; 
+  color: #2b1d7a; 
+}
+
+.education .title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.education .title span {
+  font-weight: 600; 
+  font-size: 30px;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.education-details {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center;
+  color: #2b1d7a;
+}
+
+.education-details .center {
+  text-align: center; /* Center align text within each item */
+  margin-bottom: 20px; /* Space between items */
+  color: #2b1d7a
+}
+
+
+.education-details .topic {
+  font-weight: bold; /* Bold for topic text */
+  font-size: 25px;
+  margin-bottom: 10px; /* Space below topic */
+}
+
+.education-details h3 {
+  font-weight: bold; /* Bold for school name */
+  margin: 5px 0; /* Space around school name */
+}
+
+.education-details h1 {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+
+
+
+
+
+/* About Section */
+.about {
+  width: 80%;
+  margin: 0 auto; /* Center the section */
+  padding: 40px 0; /* Add some vertical padding */
+  background-color: #696fc6; /* Slightly transparent background */
+  border-radius: 10px; /* Rounded corners for a softer look */
+}
+
+.about .title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.about .title span {
+  color: #2b1d7a;
+  font-weight: 600;
+  font-size: 2rem; /* Larger font size for emphasis */
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.about .title span::before,
+.about .title span::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #2b1d7a;
+  left: 0;
+  bottom: 0;
+}
+
+.about .title span::after {
+  bottom: -7px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about-details {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align text to the left */
+  color: #2b1d7a; /* Text color */
+}
+
+.about-details .topic {
+  font-size: 1.5rem; /* Larger font size for the topic */
+  font-weight: bold; /* Bold text */
+  margin-bottom: 15px; /* Space below the topic */
+}
+
+.about-details p {
+  font-size: 1rem; /* Base font size */
+  line-height: 1.6; /* Increase line height for readability */
+  margin-bottom: 15px; /* Space between paragraphs */
+}
+
+
+/* Skills Section */
+.skills {
+  width: 80%;
+  margin: 0 auto; /* Center the section */
+  padding: 40px 0; /* Add some vertical padding */
+  background-color: #696fc6; /* Slightly transparent background */
+  border-radius: 10px; /* Rounded corners for a softer look */
+}
+
+.skills .title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.skills .title span {
+  color: #2b1d7a;
+  font-weight: 600;
+  font-size: 2rem; /* Larger font size for emphasis */
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.skills .title span::before,
+.skills .title span::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #2b1d7a;
+  left: 0;
+  bottom: 0;
+}
+
+.skills .title span::after {
+  bottom: -7px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.skills-details {
+  display: flex;
+  justify-content: space-between; /* Space out text and boxes */
+  align-items: center;
+  color:#2b1d7a; /* Text color */
+}
+
+.skills-details .text {
+  width: 50%; /* Control width for text area */
+  margin-right: 20px; /* Space between text and boxes */
+}
+
+.skills-details .topic {
+  font-size: 1.5rem; /* Larger font size for the topic */
+  font-weight: bold; /* Bold text */
+  margin-bottom: 15px; /* Space below the topic */
+}
+
+.skills-details p {
+  font-size: 1rem; /* Base font size */
+  line-height: 1.6; /* Increase line height for readability */
+  margin-bottom: 15px; /* Space between paragraphs */
+}
+
+.skills-details .boxes {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  gap: 20px; /* Space between boxes */
+}
+
+.skills-details .box {
+  background-color: #2b1d7a; /* Box background color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Padding inside the box */
+  width: 150px; /* Fixed width for boxes */
+  color: white; /* Text color */
+  text-align: center; 
+}
+
+.skills-details .box .topic {
+  font-size: 1.2rem; /* Font size for skill name */
+  font-weight: bold; /* Bold skill name */
+  color: white;
+}
+
+.skills-details .box .per {
+  font-size: 1rem; /* Font size for percentage */
+  margin-top: 5px; /* Space above percentage */
+}
+
+
+section .title span::before,
+section .title span::after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #2b1d7a;
+  left: 0;
+  bottom: 0;
+}
+
+section .title span::after {
+  bottom: -7px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.about center {
+  width: 55%;
+}
+
+section .topic {
+  color: #2b1d7a;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.about-details .right p {
+  text-align: justify;
+  color: #2b1d7a;
+}
+
+section .button button {
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: #2b1d7a;
+  color: #2b1d7a;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+section .button button:hover {
+  border-color: #2b1d7a;
+  background-color: #2b1d7a;
+  color: #2b1d7a;
+}
+
+/* Skills Section */
+.skills .content {
+  padding: 40px 0;
+}
+
+.skills .skills-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skills-details .text {
+  width: 50%;
+}
+
+.skills-details p {
+  color: #2b1d7a;
+  text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+
+/* Footer Styles */
+footer {
+  width: 100%;
+  background-color: #2b1d7a; /* Background color for footer */
+  padding: 20px 0; /* Padding for top and bottom */
+  text-align: center; /* Center text */
+  position: relative; /* Relative positioning */
+  bottom: 0; /* Position it at the bottom */
+}
+
+footer .text {
+  color: white; /* Text color */
+  font-size: 1rem; /* Font size */
+}
+
+footer .text a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+  margin: 0 5px; /* Space between links */
+}
+
+footer .text a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
