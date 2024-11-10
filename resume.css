@@ -197,6 +197,8 @@ section .main-container {
   height: 100px;
   overflow: hidden;
   border-radius: 50%;
+    margin-bottom: 60px;
+
 }
 
 .main-container .image img {
