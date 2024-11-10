@@ -190,7 +190,6 @@ section .main-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 160px;
 }
 
 .main-container .image {
